@@ -1,0 +1,19 @@
+version: "3.7"
+
+
+services:
+
+  database:
+    image: mysql
+    restart: always
+    ports:
+      - ${TYPEORM_PORT}:3306
+    environment:
+      # - MYSQL_USER=${TYPEORM_USERNAME}
+      - MYSQL_DATABASE=${TYPEORM_DATABASE}
+      - MYSQL_ROOT_PASSWORD=${TYPEORM_PASSWORD}
+    command: mysqld --default-authentication-plugin=mysql_native_password --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+    cap_add:
+      - SYS_NICE
+    # volumes:
+    #   - ./database/nest:/var/lib/mysql
