@@ -4,7 +4,7 @@
 
 - [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-- [planetScale](https://planetscale.com/) for create free database.
+- [planetScale](https://planetscale.com/) for create free database. (this db not use fk, for now I will not use this tool)
 
 ## Installation
 
