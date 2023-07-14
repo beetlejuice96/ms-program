@@ -20,3 +20,28 @@ import {
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+
+@Entity(`pr_exercise`)
+export class Exercise {
+  @PrimaryGeneratedColumn()
+  id?: number;
+
+  @Column({ length: 100 })
+  name: string;
+
+  @Column({ length: 400, default: null })
+  description: string;
+
+  //TODO: add array of links for exercise
+  // @Column({ name: 'links', type: 'array', array: true, default: null })
+  // links: string[];
+
+  @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
+  createdAt?: Date;
+
+  @UpdateDateColumn({ name: 'updated_at', type: 'timestamp' })
+  updatedAt?: Date;
+
+  @DeleteDateColumn({ name: 'deleted_at', type: 'timestamp' })
+  deletedAt?: Date;
+}

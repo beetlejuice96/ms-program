@@ -12,6 +12,10 @@ export const dataSourceOptions: DataSourceOptions = {
   migrations: [process.env.TYPEORM_MIGRATIONS],
   synchronize: false,
   logging: true,
+  // ssl: {
+  //   rejectUnauthorized: false,
+  //   ca: process.env.MYSQL_ATTR_SSL_CA,
+  // },
 };
 const dataSource = new DataSource(dataSourceOptions);
 export default dataSource;

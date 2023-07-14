@@ -27,7 +27,7 @@ import {
   UpdateDateColumn,
 } from 'typeorm';
 
-Entity(`pr_type_wod`);
+@Entity(`pr_type_wod`)
 export class TypeWod {
   @PrimaryGeneratedColumn()
   id?: number;

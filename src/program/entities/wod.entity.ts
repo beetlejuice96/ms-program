@@ -16,11 +16,13 @@ import {
   Entity,
   JoinColumn,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
 import { Program } from './program.entity';
 import { TypeWod } from './typeWod.entity';
+import { WodExercise } from './wod-exercise.entity';
 
 // import { Exercise } from '../../exercise/entities/exercise.entity';
 
@@ -39,12 +41,18 @@ export class Wod {
   //   @Column({ name: 'day_of_week', length: 100, default: null })
   //   dayOfWeek: string;
 
-  //   @Column({ name: 'exercise_id', nullable: true, type: 'int', array: true })
-  //   exerciseId: number[];
+  // @OneToMany(() => Exercise, (exercise) => exercise, { eager: true })
+  // exercise: Exercise[];
+
+  //relation one to many with WodExercise
+  @OneToMany(() => WodExercise, (WodExercise) => WodExercise.id, {
+    eager: true,
+  })
+  wodExercises: WodExercise[];
 
   @ManyToOne(() => TypeWod, { eager: true })
   @JoinColumn({ name: 'type_wod_id' })
-  typeProgram: TypeWod;
+  typeWod: TypeWod;
 
   @ManyToOne(() => Program, { nullable: false })
   @JoinColumn({ name: 'program_id' })
