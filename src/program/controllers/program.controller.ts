@@ -11,6 +11,7 @@ import { ApiTags } from '@nestjs/swagger';
 import { ProgramService } from '../services/program.service';
 import { CreateProgramDto } from '../dto/create-program.dto';
 import { UpdateProgramDto } from '../dto/update-program.dto';
+import { EntityNotFoundError } from 'src/errors/entity-not-found.error';
 
 @ApiTags('program')
 @Controller('program')

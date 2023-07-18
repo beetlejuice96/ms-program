@@ -29,7 +29,7 @@ export class ProgramService {
   }
 
   update(id: number, updateProgramDto: UpdateProgramDto) {
-    return this.update(id, updateProgramDto);
+    return this.programRepository.update(id, updateProgramDto);
   }
 
   remove(id: number) {

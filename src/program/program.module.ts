@@ -8,6 +8,8 @@ import { TypeProgram } from './entities/typeProgram.entity';
 import { TypeWod } from './entities/typeWod.entity';
 import { WodExercise } from './entities/wod-exercise.entity';
 import { Exercise } from './entities/exercise.entity';
+import { WodService } from './services/wod.service';
+import { WodController } from './controllers/wod.controller';
 
 @Module({
   imports: [
@@ -20,7 +22,7 @@ import { Exercise } from './entities/exercise.entity';
       WodExercise,
     ]),
   ],
-  controllers: [ProgramController],
-  providers: [ProgramService],
+  controllers: [ProgramController, WodController],
+  providers: [ProgramService, WodService],
 })
 export class ProgramModule {}
