@@ -10,6 +10,8 @@ import { WodExercise } from './entities/wod-exercise.entity';
 import { Exercise } from './entities/exercise.entity';
 import { WodService } from './services/wod.service';
 import { WodController } from './controllers/wod.controller';
+import { ExerciseController } from './controllers/exercise/exercise.controller';
+import { ExerciseService } from './services/exercise/exercise.service';
 
 @Module({
   imports: [
@@ -22,7 +24,7 @@ import { WodController } from './controllers/wod.controller';
       WodExercise,
     ]),
   ],
-  controllers: [ProgramController, WodController],
-  providers: [ProgramService, WodService],
+  controllers: [ProgramController, WodController, ExerciseController],
+  providers: [ProgramService, WodService, ExerciseService],
 })
 export class ProgramModule {}

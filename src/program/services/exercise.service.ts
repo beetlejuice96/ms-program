@@ -1,16 +1,13 @@
 import { Injectable } from '@nestjs/common';
-
-import { InjectRepository } from '@nestjs/typeorm';
+import { Exercise } from '../entities/exercise.entity';
 import { Repository } from 'typeorm';
-import { Wod } from '../entities/wod.entity';
-import { CreateWodDto } from '../dto/create-wod.dto';
-import { UpdateWodDto } from '../dto/update-wod.dto';
+import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
-export class WodService {
+export class ExerciseService {
   constructor(
-    @InjectRepository(Wod)
-    private wodRepository: Repository<Wod>,
+    @InjectRepository(Exercise)
+    private wodRepository: Repository<Exercise>,
   ) {}
   create(createWoDdto: CreateWodDto) {
     const newWod = this.wodRepository.create({

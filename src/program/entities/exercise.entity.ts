@@ -17,9 +17,11 @@ import {
   CreateDateColumn,
   DeleteDateColumn,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
+import { MultimediaLink } from './multimedia-link.entity';
 
 @Entity(`pr_exercise`)
 export class Exercise {
@@ -35,6 +37,12 @@ export class Exercise {
   //TODO: add array of links for exercise
   // @Column({ name: 'links', type: 'array', array: true, default: null })
   // links: string[];
+
+  //add relation with MuhltimediaLink entity, this contain all links for exercise
+  @OneToMany(() => MultimediaLink, (MultimediaLink) => MultimediaLink, {
+    eager: true,
+  })
+  multimediaLinks: MultimediaLink[];
 
   @CreateDateColumn({ name: 'created_at', type: 'timestamp' })
   createdAt?: Date;
